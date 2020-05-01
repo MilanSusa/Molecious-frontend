@@ -3,12 +3,14 @@ import './App.css';
 import Layout from "./components/Layout/Layout";
 import {Redirect, Route, Switch} from "react-router";
 import Home from "./components/Home/Home";
+import Signup from "./containers/Signup/Signup";
 
 const App = () => {
     return (
         <div className="App">
             <Layout>
                 <Switch>
+                    <Route path="/signup" render={props => <Signup {...props} />}/>
                     <Route path="/" exact component={Home}/>
                     <Redirect to="/"/>
                 </Switch>
