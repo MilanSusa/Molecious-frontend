@@ -1,11 +1,10 @@
 import React from "react";
 import logo from "../../assets/images/molecious-logo.png";
+import Image from "react-bootstrap/Image";
 
 const Logo = props => {
     return (
-        <div className="text-center">
-            <img src={logo} alt="" />
-        </div>
+        <Image src={logo} fluid/>
     );
 };
 

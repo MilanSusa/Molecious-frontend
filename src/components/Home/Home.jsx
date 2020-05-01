@@ -1,11 +1,14 @@
 import React from "react";
 import Logo from "../Logo/Logo";
+import Description from "./Description/Description";
+import Container from "react-bootstrap/Container";
 
 const Home = props => {
     return (
-        <React.Fragment>
+        <Container>
             <Logo/>
-        </React.Fragment>
+            <Description/>
+        </Container>
     );
 };
 
