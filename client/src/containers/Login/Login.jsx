@@ -32,7 +32,7 @@ const Login = props => {
         setValidated(true);
 
         try {
-            await axios.post("http://localhost:8080/api/v1/users/authenticate", {
+            await axios.post("/api/v1/users/authenticate", {
                 username: email,
                 password
             });

@@ -44,7 +44,7 @@ const Signup = props => {
         setValidated(true);
 
         try {
-            await axios.post("http://localhost:8080/api/v1/users/sign-up", {
+            await axios.post("/api/v1/users/sign-up", {
                 firstName,
                 lastName,
                 email,
