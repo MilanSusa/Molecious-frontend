@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 
 app.post('/api/v1/users/sign-up', async (req, res) => {
@@ -34,6 +34,24 @@ app.post('/api/v1/users/authenticate', async (req, res) => {
             httpOnly: true
         });
         res.sendStatus(200);
+    } catch (err) {
+        res.status(400).send(err.response.data);
+    }
+});
+
+app.post('/api/v1/users/logout', (req, res) => {
+    res.clearCookie('JWT');
+    res.sendStatus(200);
+});
+
+app.post('/api/v1/users/jwt', async (req, res) => {
+    try {
+        const response = await axios.post('http://localhost:8080/api/v1/users/jwt', null, {
+            headers: {
+                'Cookie': `JWT=${req.cookies['JWT']}`
+            }
+        });
+        res.send(response.data);
     } catch (err) {
         res.status(400).send(err.response.data);
     }
