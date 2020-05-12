@@ -30,7 +30,10 @@ const Navigation = props => {
                         </React.Fragment>
                         : null}
                     {user ?
-                        <Nav.Link href="/logout">Logout</Nav.Link>
+                        <React.Fragment>
+                            <Nav.Link href="/predict">Predict</Nav.Link>
+                            <Nav.Link href="/logout">Logout</Nav.Link>
+                        </React.Fragment>
                         : null}
                 </Nav>
             </Navbar.Collapse>

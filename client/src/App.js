@@ -6,6 +6,7 @@ import Home from "./components/Home/Home";
 import Signup from "./containers/Signup/Signup";
 import Login from "./containers/Login/Login";
 import Logout from "./components/Logout/Logout";
+import Predict from "./containers/Predict/Predict";
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
                     <Route path="/signup" render={props => <Signup {...props} />}/>
                     <Route path="/login" render={props => <Login {...props} />}/>
                     <Route path="/logout" render={props => <Logout {...props} />}/>
+                    <Route path="/predict" render={props => <Predict {...props} />}/>
                     <Route path="/" exact component={Home}/>
                     <Redirect to="/"/>
                 </Switch>
