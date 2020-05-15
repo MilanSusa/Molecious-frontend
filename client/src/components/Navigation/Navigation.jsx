@@ -32,6 +32,7 @@ const Navigation = props => {
                     {user ?
                         <React.Fragment>
                             <Nav.Link href="/predict">Predict</Nav.Link>
+                            <Nav.Link href="/predictions">Predictions</Nav.Link>
                             <Nav.Link href="/logout">Logout</Nav.Link>
                         </React.Fragment>
                         : null}
