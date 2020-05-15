@@ -13,7 +13,7 @@ const Predictions = props => {
             });
             setPredictions(res.data.data);
         })();
-    });
+    }, []);
 
     return (
         <Container>

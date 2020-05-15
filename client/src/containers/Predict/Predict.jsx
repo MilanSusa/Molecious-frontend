@@ -60,7 +60,7 @@ const Predict = props => {
                         required
                         id="custom-file"
                         label="No file chosen"
-                        data-browse="Take a picture"
+                        data-browse="Capture"
                         onChange={e => pictureChangeHandler(e)}
                         custom
                     />
@@ -69,7 +69,7 @@ const Predict = props => {
                     {loading ?
                         <Spinner
                             as="span"
-                            animation="border"
+                            animation="grow"
                             size="sm"
                             role="status"
                             aria-hidden="true"
@@ -77,6 +77,7 @@ const Predict = props => {
                         : null}
                     Predict
                 </Button>
+                <br/>
                 {response ? <Prediction key={response.id} prediction={response}/> : null}
             </Form>
             <br/>

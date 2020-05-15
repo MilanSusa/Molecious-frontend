@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
-import {withRouter} from "react-router";
 import Alert from "react-bootstrap/Alert";
 
 const Signup = props => {
@@ -50,7 +49,7 @@ const Signup = props => {
                 email,
                 password
             });
-            props.history.push("/login");
+            window.location = "/login";
         } catch (err) {
             setError(err.response.data.message);
         }
@@ -103,4 +102,4 @@ const Signup = props => {
     );
 };
 
-export default withRouter(Signup);
+export default Signup;

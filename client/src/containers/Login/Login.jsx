@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
-import {withRouter} from "react-router";
 import Alert from "react-bootstrap/Alert";
 
 const Login = props => {
@@ -36,7 +35,7 @@ const Login = props => {
                 username: email,
                 password
             });
-            props.history.push("/inference");
+            window.location = "/predict";
         } catch (err) {
             setError(err.response.data.message);
         }
@@ -46,11 +45,11 @@ const Login = props => {
         <Container>
             <Form noValidate validated={validated} onSubmit={e => loginSubmitHandler(e)}>
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label>E-mail address</Form.Label>
                     <Form.Control
                         required
                         type="email"
-                        placeholder="Enter email"
+                        placeholder="Enter e-mail"
                         onChange={e => emailChangeHandler(e)}
                     />
                 </Form.Group>
@@ -73,4 +72,4 @@ const Login = props => {
     );
 };
 
-export default withRouter(Login);
+export default Login;
