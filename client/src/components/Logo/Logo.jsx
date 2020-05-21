@@ -4,7 +4,7 @@ import Image from "react-bootstrap/Image";
 
 const Logo = props => {
     return (
-        <Image src={logo} fluid/>
+        <Image src={logo} alt="Logo" fluid/>
     );
 };
 

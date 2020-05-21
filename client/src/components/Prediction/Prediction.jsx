@@ -13,7 +13,7 @@ const Prediction = props => {
                 <Card.Body>
                     <Row>
                         <Col>
-                            <Image src={props.prediction.imageUrl} fluid/>
+                            <Image src={props.prediction.imageUrl} alt="Mole" fluid/>
                         </Col>
                     </Row>
                     <br/>
