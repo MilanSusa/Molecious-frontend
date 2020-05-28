@@ -23,6 +23,7 @@ const Predict = props => {
     const pictureChangeHandler = e => {
         setError(null);
         setDisabled(false);
+        setResponse(null);
         setPicture(e.target.files[0]);
     }
 
@@ -36,6 +37,7 @@ const Predict = props => {
 
         setValidated(true);
         setLoading(true);
+        setDisabled(true);
 
         try {
             const formData = new FormData();
@@ -49,6 +51,7 @@ const Predict = props => {
         }
 
         setLoading(false);
+        setDisabled(false);
     }
 
     return (
