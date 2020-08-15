@@ -23,19 +23,16 @@ const Navigation = props => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    {!user ?
-                        <React.Fragment>
-                            <Nav.Link href="/signup">Sign up</Nav.Link>
-                            <Nav.Link href="/login">Login</Nav.Link>
-                        </React.Fragment>
-                        : null}
-                    {user ?
-                        <React.Fragment>
+                    {user
+                        ? <React.Fragment>
                             <Nav.Link href="/predict">Predict</Nav.Link>
                             <Nav.Link href="/predictions">Predictions</Nav.Link>
                             <Nav.Link href="/logout">Logout</Nav.Link>
                         </React.Fragment>
-                        : null}
+                        : <React.Fragment>
+                            <Nav.Link href="/signup">Sign up</Nav.Link>
+                            <Nav.Link href="/login">Login</Nav.Link>
+                        </React.Fragment>}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
