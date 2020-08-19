@@ -1,14 +1,25 @@
-import React from 'react';
+import React, {useState as useStateMock} from 'react';
 import {mount} from 'enzyme';
 import axiosMock from 'axios';
 import Navigation from "./Navigation";
 import Nav from "react-bootstrap/Nav";
 
+jest.mock('react', () => ({
+    ...jest.requireActual('react'),
+    useState: jest.fn(),
+}));
+
 describe('<Navigation />', () => {
     let wrapper = null;
+    const setState = jest.fn();
 
     beforeEach(() => {
+        useStateMock.mockImplementation(init => [init, setState]);
         wrapper = mount(<Navigation/>);
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
     });
 
     it('should trigger axios call in useEffect', () => {
@@ -22,5 +33,9 @@ describe('<Navigation />', () => {
         expect(wrapper.contains(<Nav.Link href="/predict">Predict</Nav.Link>)).toEqual(false);
         expect(wrapper.contains(<Nav.Link href="/predictions">Predictions</Nav.Link>)).toEqual(false);
         expect(wrapper.contains(<Nav.Link href="/logout">Logout</Nav.Link>)).toEqual(false);
+    });
+
+    it('should call setState in useEffect', () => {
+        expect(setState).toHaveBeenCalledTimes(1);
     });
 });
