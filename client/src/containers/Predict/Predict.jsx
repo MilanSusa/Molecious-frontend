@@ -7,6 +7,7 @@ import bsCustomFileInput from 'bs-custom-file-input';
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 import Prediction from "../../components/Prediction/Prediction";
+import {moleciousBackendBaseUrl} from "../../util/constants";
 
 const Predict = props => {
     const [picture, setPicture] = useState(null);
@@ -42,7 +43,7 @@ const Predict = props => {
         try {
             const formData = new FormData();
             formData.append("file", picture);
-            const res = await axios.post("http://localhost:8080/api/v1/inferences", formData, {
+            const res = await axios.post(moleciousBackendBaseUrl + "/api/v1/inferences", formData, {
                 withCredentials: true
             });
             setResponse(res.data.data);
