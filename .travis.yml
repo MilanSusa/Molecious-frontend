@@ -1,0 +1,12 @@
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  app: molecious-frontend
+  api_key:
+    secure: e6xhOtlJ//WHAiaUnuiAoXlHZ7w5fnZnrERf+q/kKobFdUCg3YitM2KRhQdGUdk+1spngkCz6FQVnTOT7NiNa/RqJIOeinh/OpwZf4AuFtjlsEKODjoFzfNlauDIOhAoDvu3ohy/aBelP5rIf6QkuLMhOyvfu4O7JU9MCaRjV80ojd8E4dNTFq2S1QB2DjlLlwtHVOscdoRLN+w99VK4WVVI8Ea/9408ynwdj5eQ/FWxMueTP7L6RTG38kEiWg1w+84+T58mMpSc1ThBYKMomS/tnaEdt+/GhLqTzDLwInmghDUeGBtOJ4pMC9IESVY8JbY8GJ7gR3Ohx4B5rJWHkysiI2PWr1soLcbF41CmGdUTTaxoQJaEiPUnKId7E4Ufo3VLXCQvyKwr3g4GQWrvwYsLkQu8es9PYfW/zxS0LAtnFmUqPgwXPXPozgQWmugmfX315jFiduaj6OKGH1Il7WpN33vOJ1FaByHekSDEl1NoKNE+wuk0Pz0pqebuMwzt3NlDtRdewT4G1HzPzhv/1BuhazaDMjugaQjsMSza5jgXjaxllbVvfEZ4swI/at+vVRwSFVYXMMKfB6HjCsxTketgbG29MQyiwZwYl8yeqBtp/Wq86co75wGWKpttmqkRJ1+HKz918AYwzdZMjZyvoMMs7Ry6yemBKe14Dyh3/kY=
