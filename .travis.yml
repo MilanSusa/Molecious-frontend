@@ -4,9 +4,9 @@ cache:
   directories:
     - node_modules
 
-script:
+before_script:
   - cd client
-  - yarn test
+  - npm install
 
 deploy:
   provider: heroku
