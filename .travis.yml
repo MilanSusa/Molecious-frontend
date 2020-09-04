@@ -8,7 +8,7 @@ cache:
 
 before_script:
   - cd client
-  - npm install
+  - yarn install
 
 deploy:
   provider: heroku
