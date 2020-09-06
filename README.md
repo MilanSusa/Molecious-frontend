@@ -22,6 +22,14 @@ Navigate to the root of the project and run the following command:
     
 Navigate to `/client` and execute the same command.
 
+Change `moleciousBackendUrl` in `server.js` located in the root of the project to:
+
+    const moleciousBackendUrl = 'http://localhost:8080';
+
+Change `moleciousBackendBaseUrl` in `constants.js` located in `/client/src/util` to:
+
+    export const moleciousBackendBaseUrl = 'http://localhost:8080';
+
 To start the application, execute the following command from the root of the project:
 
     yarn dev
