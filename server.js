@@ -79,6 +79,19 @@ app.post('/api/v1/inferences', upload.single('file'), async (req, res) => {
     }
 });
 
+app.get('/api/v1/inferences/users/jwt', async (req, res) => {
+    try {
+        const response = await axios.get(moleciousBackendUrl + '/api/v1/inferences/users/jwt', {
+            headers: {
+                'Cookie': `JWT=${req.cookies['JWT']}`
+            }
+        });
+        res.send(response.data);
+    } catch (err) {
+        res.status(400).send(err.response.data);
+    }
+});
+
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client/build')));
 
