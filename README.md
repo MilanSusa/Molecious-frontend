@@ -6,8 +6,9 @@ diagnostic categories are present.
 
 ## Prerequisites
 
-1) Download [Node.js][3] and [Yarn][4] and add them to path.
-2) Follow the steps for running [Molecious backend][2].
+1) Download [Node.js][3] and [Yarn][4].
+2) Create `MOLECIOUS_BACKEND_URL` environment variable and set it to `http://localhost:8080`.
+3) Follow the steps for running [Molecious backend][2].
 
 [1]: https://github.com/MilanSusa/Skin-Cancer-Detection-Inference-API
 [2]: https://github.com/MilanSusa/Molecious-backend
@@ -21,14 +22,6 @@ Navigate to the root of the project and run the following command:
     yarn install
     
 Navigate to `/client` and execute the same command.
-
-Change `moleciousBackendUrl` in `server.js` located in the root of the project to:
-
-    const moleciousBackendUrl = 'http://localhost:8080';
-
-Change `moleciousBackendBaseUrl` in `constants.js` located in `/client/src/util` to:
-
-    export const moleciousBackendBaseUrl = 'http://localhost:8080';
 
 To start the application, execute the following command from the root of the project:
 
