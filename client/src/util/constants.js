@@ -1,1 +1,0 @@
-export const moleciousBackendBaseUrl = 'https://molecious-backend.herokuapp.com';

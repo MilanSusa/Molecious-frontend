@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -7,7 +7,6 @@ import bsCustomFileInput from 'bs-custom-file-input';
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 import Prediction from "../../components/Prediction/Prediction";
-import {moleciousBackendBaseUrl} from "../../util/constants";
 
 const Predict = props => {
     const [picture, setPicture] = useState(null);
@@ -43,9 +42,7 @@ const Predict = props => {
         try {
             const formData = new FormData();
             formData.append("file", picture);
-            const res = await axios.post(moleciousBackendBaseUrl + "/api/v1/inferences", formData, {
-                withCredentials: true
-            });
+            const res = await axios.post("/api/v1/inferences", formData);
             setResponse(res.data.data);
         } catch (err) {
             setError(err.response.data.message);
@@ -81,10 +78,10 @@ const Predict = props => {
                         : null}
                     Predict
                 </Button>
-                <br/>
-                {response ? <Prediction key={response.id} prediction={response}/> : null}
+                <br />
+                {response ? <Prediction key={response.id} prediction={response} /> : null}
             </Form>
-            <br/>
+            <br />
             {error ? <Alert variant="danger">{error}</Alert> : null}
         </Container>
     );
