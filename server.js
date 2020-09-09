@@ -3,13 +3,16 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 const cookieParser = require('cookie-parser');
 const path = require('path');
+const FormData = require('form-data');
+const multer = require('multer');
+const upload = multer();
 
 const app = express();
 const port = process.env.PORT || 4000;
 const moleciousBackendUrl = 'https://molecious-backend.herokuapp.com';
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.post('/api/v1/users/sign-up', async (req, res) => {
@@ -50,6 +53,23 @@ app.post('/api/v1/users/jwt', async (req, res) => {
     try {
         const response = await axios.post(moleciousBackendUrl + '/api/v1/users/jwt', null, {
             headers: {
+                'Cookie': `JWT=${req.cookies['JWT']}`
+            }
+        });
+        res.send(response.data);
+    } catch (err) {
+        res.status(400).send(err.response.data);
+    }
+});
+
+app.post('/api/v1/inferences', upload.single('file'), async (req, res) => {
+    try {
+        const formData = new FormData();
+        formData.append('file', req.file.buffer, { filename: req.file.originalname });
+
+        const response = await axios.post(moleciousBackendUrl + '/api/v1/inferences', formData, {
+            headers: {
+                ...formData.getHeaders(),
                 'Cookie': `JWT=${req.cookies['JWT']}`
             }
         });
