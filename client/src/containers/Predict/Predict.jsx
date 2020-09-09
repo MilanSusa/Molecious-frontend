@@ -29,6 +29,8 @@ const Predict = props => {
 
     const inferenceSubmitHandler = async e => {
         e.preventDefault();
+        setError(null);
+        setResponse(null);
 
         const form = e.currentTarget;
         if (!form.checkValidity()) {
